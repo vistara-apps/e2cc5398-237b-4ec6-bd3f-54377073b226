@@ -22,6 +22,13 @@ Shake your phone for your next big startup idea. AI-powered idea generation and 
 
 ## Getting Started
 
+### Prerequisites
+- Node.js 18+ and npm
+- Base Mini App API keys
+- OpenRouter API key for AI services
+
+### Installation
+
 1. **Clone and install dependencies**:
    ```bash
    npm install
@@ -31,11 +38,12 @@ Shake your phone for your next big startup idea. AI-powered idea generation and 
    ```bash
    cp .env.example .env.local
    ```
-   
+
    Fill in your API keys:
-   - `NEXT_PUBLIC_MINIKIT_API_KEY`: Your MiniKit API key
-   - `NEXT_PUBLIC_ONCHAINKIT_API_KEY`: Your OnchainKit API key  
-   - `OPENROUTER_API_KEY`: Your OpenRouter API key
+   - `NEXT_PUBLIC_MINIKIT_API_KEY`: Your MiniKit API key from Base
+   - `NEXT_PUBLIC_ONCHAINKIT_API_KEY`: Your OnchainKit API key
+   - `OPENROUTER_API_KEY`: Your OpenRouter API key for AI
+   - `NEXT_PUBLIC_BASE_URL`: Your app's URL (http://localhost:3000 for dev)
 
 3. **Run the development server**:
    ```bash
@@ -43,7 +51,7 @@ Shake your phone for your next big startup idea. AI-powered idea generation and 
    ```
 
 4. **Open in Base App or browser**:
-   - Base App: Add as Mini App
+   - Base App: Add as Mini App using manifest.json
    - Browser: http://localhost:3000
 
 ## Usage
@@ -68,6 +76,8 @@ Shake your phone for your next big startup idea. AI-powered idea generation and 
 - **Share ideas** through the share button
 - Creates Farcaster frames for social discussion
 - Collaborate with your network on idea development
+- **Frame Integration**: Ideas can be shared as interactive Farcaster frames
+- **Co-creation Loops**: Users can save and expand on shared ideas
 
 ## Architecture
 
@@ -113,8 +123,21 @@ Shake your phone for your next big startup idea. AI-powered idea generation and 
 - **Card Shadow**: 0 4px 16px hsla(220, 20%, 0%, 0.08)
 - **Border Radius**: 4px (sm) to 16px (xl)
 
+## API Endpoints
+
+### Farcaster Integration
+- `GET /api/frame/idea/[ideaId]` - Generate Farcaster frame
+- `GET /api/frame/image/[ideaId]` - Generate frame image
+- `GET /api/save/[ideaId]` - Save idea from frame
+
+### Idea Management
+- `GET /idea/[ideaId]` - View shared idea details
+
+See [API_DOCUMENTATION.md](API_DOCUMENTATION.md) for complete API reference.
+
 ## Deployment
 
+### Build Process
 1. **Build the application**:
    ```bash
    npm run build
@@ -126,10 +149,28 @@ Shake your phone for your next big startup idea. AI-powered idea generation and 
    - Railway
    - Your own server
 
-3. **Configure Base Mini App**:
+### Base Mini App Configuration
+1. **Update environment variables**:
+   ```bash
+   NEXT_PUBLIC_BASE_URL=https://your-deployed-url.com
+   ```
+
+2. **Configure Base Mini App**:
    - Add your deployed URL to Base App
-   - Configure manifest.json for discovery
-   - Set up webhook endpoints if needed
+   - Upload manifest.json for app discovery
+   - Configure frame permissions for Farcaster integration
+
+3. **Set up webhooks** (optional):
+   - Configure webhook endpoints for frame interactions
+   - Set up monitoring for API usage
+
+### Production Checklist
+- [ ] Environment variables configured
+- [ ] API keys validated
+- [ ] Manifest.json uploaded to Base
+- [ ] Domain configured for Farcaster frames
+- [ ] SSL certificate installed
+- [ ] Error monitoring set up
 
 ## Contributing
 
