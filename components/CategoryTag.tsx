@@ -23,8 +23,8 @@ export function CategoryTag({
       onClick={onClick}
       className={cn(
         'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium transition-all duration-200',
-        variant === 'default' && 'bg-gray-100 text-text-secondary',
-        variant === 'active' && 'bg-accent text-white',
+        variant === 'default' && 'bg-gray-100 text-gray-600',
+        variant === 'active' && 'bg-green-600 text-white',
         isClickable && 'cursor-pointer hover:opacity-80 active:scale-95',
         className
       )}

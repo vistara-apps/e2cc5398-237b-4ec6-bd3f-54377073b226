@@ -86,44 +86,44 @@ export default function HomePage() {
     return (
       <AppShell>
         <div className="text-center py-12">
-          <div className="w-24 h-24 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
             <Sparkles className="w-12 h-12 text-white" />
           </div>
-          
-          <h1 className="text-display text-text-primary mb-4">
+
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">
             IdeaSpark
           </h1>
-          
-          <p className="text-lg text-accent font-medium mb-2">
+
+          <p className="text-lg text-green-600 font-medium mb-2">
             Shake your phone for your next big startup idea
           </p>
-          
-          <p className="text-body text-text-secondary mb-8 max-w-sm mx-auto">
+
+          <p className="text-base font-normal leading-7 text-gray-600 mb-8 max-w-sm mx-auto">
             Get AI-powered startup ideas instantly. Shake to generate, swipe to save, and share with your network.
           </p>
 
           <div className="space-y-4 mb-8">
-            <div className="flex items-center gap-3 p-4 bg-surface rounded-lg border border-border">
-              <Smartphone className="w-6 h-6 text-accent" />
+            <div className="flex items-center gap-3 p-4 bg-white rounded-lg border border-gray-200">
+              <Smartphone className="w-6 h-6 text-green-600" />
               <div className="text-left">
-                <h3 className="font-medium text-text-primary">Shake to Generate</h3>
-                <p className="text-sm text-text-secondary">Physical shake triggers new ideas</p>
+                <h3 className="font-medium text-gray-900">Shake to Generate</h3>
+                <p className="text-sm text-gray-600">Physical shake triggers new ideas</p>
               </div>
             </div>
-            
-            <div className="flex items-center gap-3 p-4 bg-surface rounded-lg border border-border">
-              <Zap className="w-6 h-6 text-accent" />
+
+            <div className="flex items-center gap-3 p-4 bg-white rounded-lg border border-gray-200">
+              <Zap className="w-6 h-6 text-green-600" />
               <div className="text-left">
-                <h3 className="font-medium text-text-primary">AI Expansion</h3>
-                <p className="text-sm text-text-secondary">Get detailed analysis and validation tips</p>
+                <h3 className="font-medium text-gray-900">AI Expansion</h3>
+                <p className="text-sm text-gray-600">Get detailed analysis and validation tips</p>
               </div>
             </div>
-            
-            <div className="flex items-center gap-3 p-4 bg-surface rounded-lg border border-border">
-              <BookOpen className="w-6 h-6 text-accent" />
+
+            <div className="flex items-center gap-3 p-4 bg-white rounded-lg border border-gray-200">
+              <BookOpen className="w-6 h-6 text-green-600" />
               <div className="text-left">
-                <h3 className="font-medium text-text-primary">Save & Filter</h3>
-                <p className="text-sm text-text-secondary">Organize ideas by industry and tech stack</p>
+                <h3 className="font-medium text-gray-900">Save & Filter</h3>
+                <p className="text-sm text-gray-600">Organize ideas by industry and tech stack</p>
               </div>
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function HomePage() {
             Generate Your First Idea
           </ActionButton>
 
-          <p className="text-caption text-text-secondary">
+          <p className="text-sm font-light text-gray-600">
             Or shake your device to get started
           </p>
         </div>
@@ -154,8 +154,8 @@ export default function HomePage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-text-primary">IdeaSpark</h1>
-          <p className="text-sm text-text-secondary">
+          <h1 className="text-2xl font-bold text-gray-900">IdeaSpark</h1>
+          <p className="text-sm text-gray-600">
             {showSavedIdeas ? `${filteredSavedIdeas.length} saved ideas` : 'Shake for new ideas'}
           </p>
         </div>
@@ -165,17 +165,17 @@ export default function HomePage() {
             variant="icon"
             onClick={() => setShowSavedIdeas(!showSavedIdeas)}
             className={cn(
-              showSavedIdeas ? 'bg-primary text-white' : 'text-text-secondary'
+              showSavedIdeas ? 'bg-blue-600 text-white' : 'text-gray-600'
             )}
           >
             <BookOpen className="w-5 h-5" />
           </ActionButton>
-          
+
           <ActionButton
             variant="icon"
             onClick={() => StorageService.setPremiumStatus(!StorageService.isPremiumUser())}
             className={cn(
-              StorageService.isPremiumUser() ? 'text-yellow-500' : 'text-text-secondary'
+              StorageService.isPremiumUser() ? 'text-yellow-500' : 'text-gray-600'
             )}
           >
             <Crown className="w-5 h-5" />
@@ -196,11 +196,11 @@ export default function HomePage() {
         <div>
           {filteredSavedIdeas.length === 0 ? (
             <div className="text-center py-12">
-              <BookOpen className="w-16 h-16 text-text-secondary mx-auto mb-4" />
-              <h3 className="text-headline text-text-primary mb-2">
+              <BookOpen className="w-16 h-16 text-gray-600 mx-auto mb-4" />
+              <h3 className="text-3xl font-semibold text-gray-900 mb-2">
                 No saved ideas yet
               </h3>
-              <p className="text-body text-text-secondary mb-6">
+              <p className="text-base font-normal leading-7 text-gray-600 mb-6">
                 Generate and save ideas to build your collection
               </p>
               <ActionButton
@@ -240,15 +240,15 @@ export default function HomePage() {
           ) : (
             <div className="text-center py-12">
               <div className={cn(
-                'w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300',
+                'w-20 h-20 bg-gradient-to-br from-green-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300',
                 isShaking && 'animate-shake'
               )}>
                 <Smartphone className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-headline text-text-primary mb-2">
+              <h3 className="text-3xl font-semibold text-gray-900 mb-2">
                 Ready for inspiration?
               </h3>
-              <p className="text-body text-text-secondary mb-6">
+              <p className="text-base font-normal leading-7 text-gray-600 mb-6">
                 Shake your device or tap the button to generate a new startup idea
               </p>
               <ActionButton
@@ -265,13 +265,13 @@ export default function HomePage() {
 
           {isExpanding && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-              <div className="bg-surface p-6 rounded-lg shadow-card max-w-sm mx-4">
+              <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm mx-4">
                 <div className="text-center">
-                  <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-                  <h3 className="text-lg font-medium text-text-primary mb-2">
+                  <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+                  <h3 className="text-lg font-medium text-gray-900 mb-2">
                     Expanding Idea
                   </h3>
-                  <p className="text-sm text-text-secondary">
+                  <p className="text-sm text-gray-600">
                     AI is analyzing your idea and generating insights...
                   </p>
                 </div>
