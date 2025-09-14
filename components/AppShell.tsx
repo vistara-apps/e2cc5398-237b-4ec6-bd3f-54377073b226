@@ -12,7 +12,7 @@ interface AppShellProps {
 export function AppShell({ children, variant = 'default', className }: AppShellProps) {
   return (
     <div className={cn(
-      'min-h-screen bg-bg',
+      'min-h-screen bg-white',
       variant === 'compact' ? 'px-4 py-4' : 'container',
       className
     )}>

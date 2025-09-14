@@ -70,11 +70,11 @@ export function IdeaCard({
       >
         <div className="flex items-start justify-between mb-2">
           <div className="flex-1">
-            <p className="text-body text-text-primary mb-2 line-clamp-2">
+            <p className="text-base font-normal leading-7 text-gray-900 mb-2 line-clamp-2">
               {idea.rawIdeaText}
             </p>
             {idea.oneLiner && (
-              <p className="text-sm text-accent font-medium mb-2">
+              <p className="text-sm text-green-600 font-medium mb-2">
                 {idea.oneLiner}
               </p>
             )}
@@ -84,7 +84,7 @@ export function IdeaCard({
             onClick={handleSave}
             className={cn(
               'ml-2',
-              isSaved ? 'text-red-500' : 'text-text-secondary'
+              isSaved ? 'text-red-500' : 'text-gray-600'
             )}
           >
             <Heart className={cn('w-5 h-5', isSaved && 'fill-current')} />
@@ -118,34 +118,34 @@ export function IdeaCard({
         </div>
 
         {isExpanded && hasExpansions && (
-          <div className="mt-4 pt-4 border-t border-border space-y-3 animate-slide-up">
+          <div className="mt-4 pt-4 border-t border-gray-200 space-y-3 animate-slide-up">
             {idea.description && (
               <div>
-                <h4 className="text-sm font-medium text-text-primary mb-1 flex items-center gap-1">
+                <h4 className="text-sm font-medium text-gray-900 mb-1 flex items-center gap-1">
                   <Zap className="w-4 h-4" />
                   Description
                 </h4>
-                <p className="text-sm text-text-secondary">{idea.description}</p>
+                <p className="text-sm text-gray-600">{idea.description}</p>
               </div>
             )}
-            
+
             {idea.marketSummary && (
               <div>
-                <h4 className="text-sm font-medium text-text-primary mb-1 flex items-center gap-1">
+                <h4 className="text-sm font-medium text-gray-900 mb-1 flex items-center gap-1">
                   <TrendingUp className="w-4 h-4" />
                   Market Analysis
                 </h4>
-                <p className="text-sm text-text-secondary">{idea.marketSummary}</p>
+                <p className="text-sm text-gray-600">{idea.marketSummary}</p>
               </div>
             )}
-            
+
             {idea.validationTips && (
               <div>
-                <h4 className="text-sm font-medium text-text-primary mb-1 flex items-center gap-1">
+                <h4 className="text-sm font-medium text-gray-900 mb-1 flex items-center gap-1">
                   <Users className="w-4 h-4" />
                   Validation Tips
                 </h4>
-                <p className="text-sm text-text-secondary">{idea.validationTips}</p>
+                <p className="text-sm text-gray-600">{idea.validationTips}</p>
               </div>
             )}
           </div>
@@ -176,32 +176,32 @@ export function IdeaCard({
       </div>
 
       <div className="text-center mb-6">
-        <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
           <Sparkles className="w-8 h-8 text-white" />
         </div>
-        <h3 className="text-headline text-text-primary mb-2">
+        <h3 className="text-3xl font-semibold text-gray-900 mb-2">
           New Idea
         </h3>
         {idea.oneLiner && (
-          <p className="text-lg text-accent font-medium mb-4">
+          <p className="text-lg text-green-600 font-medium mb-4">
             {idea.oneLiner}
           </p>
         )}
       </div>
 
       <div className="mb-6">
-        <p className="text-body text-text-primary leading-relaxed">
+        <p className="text-base font-normal leading-7 text-gray-900 leading-relaxed">
           {idea.rawIdeaText}
         </p>
       </div>
 
       {idea.description && (
         <div className="mb-6 p-4 bg-gray-50 rounded-lg">
-          <h4 className="text-sm font-medium text-text-primary mb-2 flex items-center gap-1">
+          <h4 className="text-sm font-medium text-gray-900 mb-2 flex items-center gap-1">
             <Zap className="w-4 h-4" />
             Description
           </h4>
-          <p className="text-sm text-text-secondary">{idea.description}</p>
+          <p className="text-sm text-gray-600">{idea.description}</p>
         </div>
       )}
 
@@ -209,21 +209,21 @@ export function IdeaCard({
         <div className="mb-6 space-y-4">
           {idea.marketSummary && (
             <div className="p-4 bg-blue-50 rounded-lg">
-              <h4 className="text-sm font-medium text-text-primary mb-2 flex items-center gap-1">
+              <h4 className="text-sm font-medium text-gray-900 mb-2 flex items-center gap-1">
                 <TrendingUp className="w-4 h-4" />
                 Market Analysis
               </h4>
-              <p className="text-sm text-text-secondary">{idea.marketSummary}</p>
+              <p className="text-sm text-gray-600">{idea.marketSummary}</p>
             </div>
           )}
-          
+
           {idea.validationTips && (
             <div className="p-4 bg-green-50 rounded-lg">
-              <h4 className="text-sm font-medium text-text-primary mb-2 flex items-center gap-1">
+              <h4 className="text-sm font-medium text-gray-900 mb-2 flex items-center gap-1">
                 <Users className="w-4 h-4" />
                 Validation Tips
               </h4>
-              <p className="text-sm text-text-secondary">{idea.validationTips}</p>
+              <p className="text-sm text-gray-600">{idea.validationTips}</p>
             </div>
           )}
         </div>
@@ -277,7 +277,7 @@ export function IdeaCard({
       </div>
 
       <div className="mt-4 text-center">
-        <p className="text-caption text-text-secondary">
+        <p className="text-sm font-light text-gray-600">
           Swipe right to save • Swipe left to discard
         </p>
       </div>
