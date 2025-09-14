@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-bg text-text-primary;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-screen-lg w-full px-5 py-8 mx-auto;
+  }
+  
+  .text-display {
+    @apply text-5xl font-bold;
+  }
+  
+  .text-headline {
+    @apply text-3xl font-semibold;
+  }
+  
+  .text-body {
+    @apply text-base font-normal leading-7;
+  }
+  
+  .text-caption {
+    @apply text-sm font-light;
+  }
+  
+  .card {
+    @apply bg-surface border border-border rounded-lg shadow-card;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:opacity-90 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-surface border border-border text-text-primary px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-50 active:scale-95;
+  }
+  
+  .btn-icon {
+    @apply p-3 rounded-lg transition-all duration-200 hover:bg-gray-100 active:scale-95;
+  }
+}
+
+@layer utilities {
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+}
