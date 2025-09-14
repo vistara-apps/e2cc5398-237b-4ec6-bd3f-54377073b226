@@ -1,0 +1,14 @@
+{
+  "name": "IdeaSpark",
+  "description": "IdeaSpark is a Base Mini App built with Zara.",
+  "image": "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=OG",
+  "external_url": "https://e2cc5398-237b-4ec6-bd3f-54377073b226.vercel.app",
+  "properties": {
+    "app": {
+      "name": "IdeaSpark",
+      "description": "IdeaSpark is a Base Mini App built with Zara.",
+      "url": "https://e2cc5398-237b-4ec6-bd3f-54377073b226.vercel.app",
+      "icon": "https://0co.to/images/zara-2.png"
+    }
+  }
+}
