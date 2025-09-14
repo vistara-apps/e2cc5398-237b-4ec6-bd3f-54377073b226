@@ -20,6 +20,27 @@ export default function HomePage() {
   const [filters, setFilters] = useState<FilterOptions>({});
   const [savedIdeas, setSavedIdeas] = useState(() => StorageService.getSavedIdeas());
   const [showOnboarding, setShowOnboarding] = useState(true);
+  const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+
+  // Handle URL parameters for notifications
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const saved = urlParams.get('saved');
+    const message = urlParams.get('message');
+
+    if (message) {
+      setNotification({
+        message,
+        type: saved ? 'success' : 'error'
+      });
+
+      // Clear URL parameters
+      window.history.replaceState({}, '', window.location.pathname);
+
+      // Auto-hide notification after 3 seconds
+      setTimeout(() => setNotification(null), 3000);
+    }
+  }, []);
 
   const generateNewIdea = useCallback(async () => {
     if (isGenerating) return;
@@ -69,15 +90,28 @@ export default function HomePage() {
 
   const handleSaveIdea = (idea: Idea) => {
     setSavedIdeas(StorageService.getSavedIdeas());
+    setNotification({
+      message: 'Idea saved successfully!',
+      type: 'success'
+    });
+    setTimeout(() => setNotification(null), 3000);
   };
 
   const handleDiscardIdea = () => {
     generateNewIdea();
   };
 
-  const handleShareIdea = (idea: Idea) => {
-    // In a real app, this would create a Farcaster frame
-    console.log('Sharing idea:', idea);
+  const handleShareIdea = async (idea: Idea) => {
+    try {
+      await FarcasterService.shareIdeaToFarcaster(idea);
+    } catch (error) {
+      console.error('Error sharing idea:', error);
+      setNotification({
+        message: 'Failed to share idea. Please try again.',
+        type: 'error'
+      });
+      setTimeout(() => setNotification(null), 3000);
+    }
   };
 
   const filteredSavedIdeas = StorageService.filterSavedIdeas(filters);
@@ -151,6 +185,17 @@ export default function HomePage() {
 
   return (
     <AppShell>
+      {/* Notification */}
+      {notification && (
+        <div className={`fixed top-4 left-4 right-4 z-50 p-4 rounded-lg shadow-card animate-slide-up ${
+          notification.type === 'success'
+            ? 'bg-green-50 border border-green-200 text-green-800'
+            : 'bg-red-50 border border-red-200 text-red-800'
+        }`}>
+          <p className="text-sm font-medium">{notification.message}</p>
+        </div>
+      )}
+
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
